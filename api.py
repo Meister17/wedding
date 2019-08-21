@@ -9,14 +9,13 @@ app = Flask(__name__)
 
 logging.basicConfig(level=logging.DEBUG)
 
-@app.route("/", methods=["POST"])
-
 responses = {}
 
 for filename in os.listdir('data'):
 	with open(os.path.join('data', filename), 'rt') as file_input:
 		responses[os.path.splitext(filename)[0]] = file_input.read().replace('\r', '').replace('\n', '')
 
+@app.route("/", methods=["POST"])
 
 def main():
 	logging.info("Request: %r", request.json)
