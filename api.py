@@ -27,6 +27,11 @@ def main():
 		}
 	}
 
+	if 'version' in request.json:
+		response['version'] = request.json["version"]
+	else:
+		response['version'] = '1.0'
+
 	handle_dialog(request.json, response)
 
 	logging.info("Response: %r", response)
