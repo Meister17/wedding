@@ -21,7 +21,6 @@ def main():
 	logging.info("Request: %r", request.json)
 
 	response = {
-		"version": request.json["verson"],
 		"session": request.json["session"],
 		"response": {
 			"end_session": False
