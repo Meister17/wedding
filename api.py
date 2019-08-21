@@ -21,16 +21,12 @@ def main():
 	logging.info("Request: %r", request.json)
 
 	response = {
+		"version": request.json["version"],
 		"session": request.json["session"],
 		"response": {
 			"end_session": False
 		}
 	}
-
-	if 'version' in request.json:
-		response['version'] = request.json["version"]
-	else:
-		response['version'] = '1.0'
 
 	handle_dialog(request.json, response)
 
